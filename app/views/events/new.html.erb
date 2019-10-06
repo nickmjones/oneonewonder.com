@@ -1,0 +1,21 @@
+<% content_for :main do %>
+  <div class="content">
+    <div class="teamstats">
+      <h4 class="teamstats__name">
+        <%= @team.nickname %>
+      </h4>
+      <div class="teamstats__chips">
+        <ul>
+          <li><div class="chip">6/10 Members</div></li>
+          <li><div class="chip">
+            <%=link_to "Admin", edit_team_path(@team) %>
+          </div></li>
+          <li><div class="chip chip--notice">
+            Upgrade
+          </div></li>
+        </ul>
+      </div>
+    </div>
+    <%= render 'form', event: @event %>
+  </div>
+<% end %>

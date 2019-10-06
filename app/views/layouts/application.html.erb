@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OneonewonderCom</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <%= render 'shared/sidebar' %>
+      <%= yield :main %>
+    </div>
+
+    <% if flash[:notice] %>
+    <div class="message">
+      <%= notice %>
+    </div>
+    <% end %>
+
+  </body>
+</html>

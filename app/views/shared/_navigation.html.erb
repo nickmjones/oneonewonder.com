@@ -1,0 +1,15 @@
+<div class="navigation">
+  <ul class="navigation__links">
+    <li><%=link_to "Home", root_path %></li>
+    <li><%=link_to "My Team", team_path(1) %></li>
+    <li><%=link_to "Add Member", new_colleague_path %></li>
+  </ul>
+
+  <div class="navigation__auth">
+    <% if user_signed_in? %>
+      Hello <%= current_user.email %> <%= link_to('Logout', destroy_user_session_path, method: :delete) %> 
+    <% else %>
+      <%=link_to "Sign In", new_user_session_path %>
+    <% end %>
+  </div>
+</div>

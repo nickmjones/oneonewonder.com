@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fname: MyString
+  lname: MyString
+  title: MyString
+  birthday: 2019-10-01 22:48:06
+  team: one
+
+two:
+  fname: MyString
+  lname: MyString
+  title: MyString
+  birthday: 2019-10-01 22:48:06
+  team: two

@@ -1,0 +1,49 @@
+<%= form_with(model: @colleague, local: true) do |form| %>
+  <% if @colleague.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@colleague.errors.count, "error") %> prohibited this colleague from being saved:</h2>
+
+      <ul>
+        <% @colleague.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :fname, value: "First Name" %>
+    <%= form.text_field :fname%>
+  </div>
+
+  <div class="field">
+    <%= form.label :lname, value: "Last Name" %>
+    <%= form.text_field :lname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color %>
+    <%= form.text_field :color, class: "jscolor" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :birthday %>
+    <%= form.date_select :birthday, discard_year: true %>
+  </div>
+
+  <%= form.hidden_field :team_id, value: current_user.id %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

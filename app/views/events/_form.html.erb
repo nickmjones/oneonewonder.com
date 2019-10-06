@@ -1,0 +1,48 @@
+<%= form_with(model: @event, local: true) do |form| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+        <% @event.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :colleague_id, value: "Create a 1:1 for..." %>
+    <%= collection_select(:event, :colleague_id, Colleague.all, :id, :full_name ) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes, rows: "10" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.datetime_select :date, ampm: true, minute_step: 15, use_two_digit_numbers: false %>
+  </div>
+
+  <%= month_calendar do |date| %>
+    <%= date.day %>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :reminder %>
+    <%= form.check_box :reminder %>
+  </div>
+
+  <%= form.hidden_field :user_id, value: current_user.id %>
+
+  <div class="actions">
+    <%= form.submit class: 'btn' %>
+  </div>
+<% end %>

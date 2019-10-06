@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyText
+  date: 2019-10-03 17:53:21
+  reminder: false
+  user: one
+
+two:
+  title: MyText
+  date: 2019-10-03 17:53:21
+  reminder: false
+  user: two

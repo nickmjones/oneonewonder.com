@@ -1,0 +1,119 @@
+// Forms
+input[type='text'],
+input[type='password'],
+textarea {
+  border: 1px solid #d7d7d7;
+  display: block;
+  font-size: 1rem;
+  padding: .4rem;
+  width: 100%;
+  transition: all .10s ease-in-out;
+  border-radius: 5px;
+  &:focus {
+    outline: 0;
+    border: 1px solid $color-medblue;
+  }
+}
+select {
+  font-size: 1rem;
+}
+form {
+  width: 100%;
+}
+.field {
+  margin-bottom: 1rem;
+}
+
+.btn {
+  background: $color-highlight;
+  color: #fff;
+  text-align: center;
+  font-size: 1rem;
+  border: 0;
+  padding: 10px 16px;
+  border-radius: 6px;
+}
+
+// chip
+.chip {
+  border: 2px solid #d7d7d7;
+  border-radius: 5px;
+  color: #999;
+  padding: 6px 14px;
+  display: inline-block;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &--notice {
+    background: linear-gradient(90deg, #FE7F2D, #FCCA46);
+    color: #fff;
+    border-color: #FCCA46;
+  }
+}
+
+// flexgrid
+
+.flex {
+  display: flex;
+  flex-flow: row wrap;
+
+  &--gutters {
+    margin: 0 0 1rem -2rem;
+  }
+  &--nowrap {
+    flex-flow: row nowrap;
+  }
+}
+.flex--gutters .flex__item {
+  padding: 2rem 0 0 2rem;
+}
+.flex__item {
+  flex: 1;
+
+  &--full {
+    flex: 0 0 100%;
+  }
+  &--1of3 {
+    flex: 0 0 33.3333%
+  }
+  &--1of2 {
+    flex: 0 0 50%
+  }
+}
+.node {
+  background: #fff;
+  border-radius: 6px;
+  padding: 2rem;
+  box-shadow: 0 8px 20px #efefef;
+
+  &--gradient {
+    background: linear-gradient(90deg, #2B5CE4, #188EDC);
+    border: 0;
+    line-height: 1.4;
+    padding: 1.2rem;
+    position: relative;
+    h2 {
+      font-size: 1.2rem;
+      margin: 0;
+      color: #fff;
+    }
+    h5 {
+      font-size: .8rem;
+      margin: 0;
+      color: rgba(255,255,255,0.6);
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .bell {
+      position: absolute;
+      top: .3rem;
+      right: .5rem;
+      color: #fff;
+    }
+  }
+}

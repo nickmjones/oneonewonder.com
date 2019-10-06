@@ -1,0 +1,24 @@
+<%= content_for :main do %>
+  <div class="content">
+
+    <div class="colleague-header">
+      <div class="colleague-header__name">
+        <h2><%= @colleague.full_name %></h2>
+        <h5><%= @colleague.title %></h5>
+      </div>
+
+      <div class="colleague-header__events">
+        <% if @event.any? %>
+          <span class="chip">
+            <%= fa_icon "calendar" %> <%= @event.first.date.strftime("%b %e") %>
+          </span>
+        <% else %>
+          <span class="chip">
+            <i class="material-icons">calendar</i> No Events Upcoming
+          </span>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+<% end %>
