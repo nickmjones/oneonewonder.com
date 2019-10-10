@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OneonewonderCom</title>
+    <title>Dashboard | oneonwonder</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,23 @@
   </head>
 
   <body>
+
+    <div class="authd-navigation">
+      <div class="authd-navigation__logo">
+        <%=image_tag("logo_placeholder.png") %>
+      </div>
+
+      <ul class="authd-navigation__links">
+        <li><%=link_to "Home", root_path %></li>
+        <li>Settings</li>
+      </ul>
+
+      <ul class="authd-navigation__avatar">
+        <li>+</li>
+        <li><%= user_gravatar current_user %></li>
+      </ul>
+    </div>
+
     <div class="wrapper">
       <%= render 'shared/sidebar' %>
       <%= yield :main %>

@@ -10,3 +10,26 @@
   font-family: 'Circular Bold';
   src:  url('lineto-circular-pro-bold.woff') format('woff');
 }
+
+// Type
+h1, h2, h3, h4, h5 {
+  margin-bottom: .6rem;
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-size: $base-font-size + $heading-scale * (6 - $i);
+  }
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.2;
+}
+p + p {
+  margin-top: 1rem;
+}
+
+strong {
+  font-weight: bold;
+}

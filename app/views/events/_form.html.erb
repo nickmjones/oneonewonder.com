@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :colleague_id, value: "Create a 1:1 for..." %>
-    <%= collection_select(:event, :colleague_id, Colleague.all, :id, :full_name ) %>
+    <%= collection_select(:event, :colleague_id, Colleague.all, :id, :full_name, {}, {class: "select-css"}) %>
   </div>
 
   <div class="field">
@@ -21,19 +21,19 @@
     <%= form.text_field :title %>
   </div>
 
+
   <div class="field">
     <%= form.label :notes %>
     <%= form.text_area :notes, rows: "10" %>
   </div>
 
   <div class="field">
-    <%= form.label :date %>
-    <%= form.datetime_select :date, ampm: true, minute_step: 15, use_two_digit_numbers: false %>
+    <%=
+      form.datetime_select :date,
+      {:start_year => Date.current.year, ampm: true, minute_step: 15},
+      {class: "select-css"}
+    %>
   </div>
-
-  <%= month_calendar do |date| %>
-    <%= date.day %>
-  <% end %>
 
   <div class="field">
     <%= form.label :reminder %>
@@ -41,6 +41,12 @@
   </div>
 
   <%= form.hidden_field :user_id, value: current_user.id %>
+
+  <% unless @event.uuid.blank? %>
+    <%= form.hidden_field :uuid %>
+  <% else %>
+    <%= form.hidden_field :uuid, value: @token %>
+  <% end %>
 
   <div class="actions">
     <%= form.submit class: 'btn' %>

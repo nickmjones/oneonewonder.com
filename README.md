@@ -6,3 +6,8 @@ Oneonwonder is a dashboard that helps you organize information about your team, 
 
 - https://coderwall.com/p/f5mdoq/using-belongs_to-with-scaffold-generator-to-quickly-create-associations
 - https://philipwalton.github.io/solved-by-flexbox/demos/grids/
+- https://github.com/norman/friendly_id/
+- https://github.com/excid3/simple_calendar
+
+To Do
+- Need to change controller for logging in

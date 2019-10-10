@@ -1,5 +1,8 @@
 <% content_for :main do %>
-  <div class="content">
-    <%= render 'form', team: @team %>
-  </div>
+  <main>
+    <%= render 'shared/detail-nav', :locals => {:path => root_path, :page_title => "Team Settings" } %>
+    <div class="content">
+      <%= render 'form', team: @team %>
+    </div>
+  </main>
 <% end %>

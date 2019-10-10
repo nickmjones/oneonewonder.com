@@ -1,82 +1,24 @@
 <%= content_for :main do %>
-  <div class="content">
-    <div class="teamstats">
-      <h4 class="teamstats__name">
-        <%= @team.nickname %>
-      </h4>
-      <div class="teamstats__chips">
-        <ul>
-          <li><div class="chip">6/10 Members</div></li>
-          <li><div class="chip">
-            <%=link_to "Admin", edit_team_path(@team) %>
-          </div></li>
-          <li><div class="chip chip--notice">
-            Upgrade
-          </div></li>
-        </ul>
-      </div>
-    </div>
+  <main>
+    <%= render 'shared/detail-nav', :locals => {:path => root_path, :page_title => @team.nickname, :page_subtitle => "Subtitle" } %>
 
-    <div class="flex flex--gutters">
-      <div class="flex__item flex__item--full">
-        <div class="node">
-          <h5>Coming Up</h5>
-          <div class="flex flex--gutters flex--nowrap">
-            <% @events.each do |e| %>
-              <div class="flex__item">
-                <div class="node node--gradient">
-                  <%=link_to event_path(e) do %>
-                  <h2><%= e.title %></h2>
-                  <h5><%= e.date.strftime("%B %e")%></h5>
-                  <% if e.reminder == true %>
-                    <span class="bell">
-                      <i class="material-icons">alarm_on</i>
-                    </span>
-                    <% end %>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
+    <div class="content">
+      <h4>This Week</h4>
+
+      <%= week_calendar number_of_days: 5, events: @events do |date, events| %>
+        <% events.each do |event| %>
+          <div>
+            <%= link_to event.title, event %>
           </div>
-        </div>
-      </div>
+        <% end %>
+      <% end %>
 
-      <div class="flex__item flex__item--1of3">
-        <div class="node">
-          Foo
-        </div>
-      </div>
-
-      <div class="flex__item flex__item--1of3">
-        <div class="node">
-          Bar
-        </div>
-      </div>
-
-      <div class="flex__item flex__item--1of3">
-        <div class="node">
-          Bat
-        </div>
-      </div>
-
-      <div class="flex__item flex__item--1of2">
-        <div class="node">
-          Blah
-        </div>
-      </div>
-
-      <div class="flex__item flex__item--1of2">
-        <div class="node">
-          Blah
-        </div>
-      </div>
-
+      <p>This screen should also show:</p>
+      <ul>
+        <li>Number of people on a team versus number allowed in current tier</li>
+        <li>Most recent notes</li>
+      </ul>
     </div>
 
-    <p>This screen should also show:</p>
-    <ul>
-      <li>Number of people on a team versus number allowed in current tier</li>
-      <li>Most recent notes</li>
-    </ul>
-  </div>
+  </main>
 <% end %>

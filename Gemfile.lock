@@ -94,6 +94,8 @@ GEM
     font-awesome-rails (4.7.0.5)
       railties (>= 3.2, < 6.1)
     formatador (0.2.5)
+    friendly_id (5.2.5)
+      activerecord (>= 4.0.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     guard (2.15.1)
@@ -265,6 +267,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   devise
   font-awesome-rails
+  friendly_id (~> 5.2.4)
   guard
   guard-bundler
   guard-livereload

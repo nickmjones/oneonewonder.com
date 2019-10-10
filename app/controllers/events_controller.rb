@@ -17,6 +17,7 @@ class EventsController < ApplicationController
     @event = Event.new
     @team = Team.find(current_user.id)
     @members = @team.colleagues.all
+    @token = SecureRandom.uuid
   end
 
   # GET /events/1/edit
@@ -66,13 +67,14 @@ class EventsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
-      @event = Event.find(params[:id])
+      @event = Event.friendly.find(params[:id])
       @team = Team.find(current_user.id)
       @members = @team.colleagues.all
+      @token = SecureRandom.uuid
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :date, :reminder, :user_id, :colleague_id, :notes)
+      params.require(:event).permit(:title, :date, :reminder, :user_id, :colleague_id, :notes, :uuid)
     end
 end

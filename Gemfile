@@ -15,6 +15,7 @@ gem 'font-awesome-rails'
 gem 'material_icons'
 gem 'active_link_to'
 gem 'simple_calendar', '~> 2.0'
+gem 'friendly_id', '~> 5.2.4'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

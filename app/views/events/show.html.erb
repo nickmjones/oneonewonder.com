@@ -1,20 +1,24 @@
-<% content_for :main do %>
-  <div class="content">
-    <h3><%= @event.title %></h3>
-    <h5><%= @event.date.strftime("%B %e, %Y") %></h5>
+  <% content_for :main do %>
 
-    <% if @event.reminder? == true %>
-      <p>Reminder enabled</p>
-    <% else %>
-      <p>No reminder set</p>
-    <% end %>
+  <main>
+    <%= render 'shared/detail-nav', :locals => {:path => root_path, :page_title => @event.title, :page_subtitle => @event.date.strftime("%B, %y %Y @ %l:%M %p") } %>
 
-    <hr/>
+    <div class="content">
 
-    <%= @event.notes %>
+      <p><%= link_to get_colleague_name(@event.colleague_id), colleague_path(@event.colleague_id) %> &rarr;</p>
 
-    <br/>
+      <% if @event.reminder == true %>
+        <p>You're receiving reminders about this 1:1</p>
+      <% else %>
+        <p>Reminders are disabled for this 1:1. [Fix]</p>
+      <% end %>
+      <p><strong>When:</strong> <%= @event.date.strftime("%B, %y %Y @ %l:%M %p") %></p>
+      <p><strong>What:</strong> <%= @event.notes %></p>
 
-    <%= link_to 'Edit', edit_event_path(@event) %>
-  </div>
+      <br/>
+
+    </div>
+
+  </main>
+
 <% end %>

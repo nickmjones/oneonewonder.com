@@ -1,0 +1,18 @@
+  <% if locals[:style] == "simple" %>
+<div class="backbar backbar--simple">
+  <% else %>
+<div class="backbar">
+  <% end %>
+  <div class="backbar__action">
+    <div class="roundrect-icon">
+      <i class="material-icons">apps</i>
+    </div>
+  </div>
+
+  <div class="backbar__title">
+    <h3><%= locals[:page_title] %></h3>
+    <% unless locals[:page_subtitle].blank? %>
+      <h5><%= locals[:page_subtitle] %></h5>
+    <% end %>
+  </div>
+</div>
