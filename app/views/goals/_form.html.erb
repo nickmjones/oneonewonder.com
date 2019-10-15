@@ -1,0 +1,57 @@
+<%= form_with(model: goal, local: true) do |form| %>
+  <% if goal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(goal.errors.count, "error") %> prohibited this goal from being saved:</h2>
+
+      <ul>
+        <% goal.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= collection_select(:goal, :colleague_id, Colleague.all, :id, :full_name, {}, {class: "select-css"}) %>
+  </div>
+
+  <div class="field">
+    <%= form.select :goal_type, ['Time Goal', 'Focus Goal', 'Topic Goal'], {}, { class: "select-css" } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :goal_title %>
+    <%= form.text_field :goal_title %>
+  </div>
+
+  <div class="field">
+    <%=
+      form.date_select :goal_start,
+      {:start_year => Date.current.year},
+      {class: "select-css"}
+    %>
+  </div>
+  <div class="field">
+    <%=
+      form.date_select :goal_end,
+      {:start_year => Date.current.year},
+      {class: "select-css"}
+    %>
+  </div>
+
+  <div class="field">
+    <%= form.label :goal_description %>
+    <%= form.text_area :goal_description, rows: '10' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :goal_complete %>
+    <%= form.check_box :goal_complete %>
+  </div>
+
+  <%= form.hidden_field :user_id, value: current_user.id %>
+
+  <div class="actions">
+    <%= form.submit class: 'btn' %>
+  </div>
+<% end %>

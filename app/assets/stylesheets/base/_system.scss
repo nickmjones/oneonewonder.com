@@ -55,10 +55,11 @@ form {
 
 // chip
 .chip {
-  border: 2px solid #d7d7d7;
-  border-radius: 5px;
-  color: #999;
-  padding: 6px 14px;
+  background: $color-btn-background;
+  border-radius: 40px;
+  padding: 6px 12px;
+  border: 1px solid $color-btn-border;
+  color: $color-btn-border;
   display: inline-block;
 
   a {
@@ -75,6 +76,10 @@ form {
     background: $color-medblue;
     color: #fff;
     border-color: $color-medblue;
+  }
+  &--blue {
+    background: $color-btn-border;
+    color: #fff;
   }
 }
 

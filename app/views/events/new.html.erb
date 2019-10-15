@@ -1,7 +1,12 @@
 <% content_for :main do %>
   <main>
-    <%= render 'shared/detail-nav', :locals => {:path => root_path, :page_title => "New 1:1", :page_subtitle => @team.nickname } %>
-    
+    <%= render 'shared/detail-nav', :locals => {
+      path: root_path,
+      page_title: "New 1:1",
+      page_subtitle: @team.nickname,
+      icon: "alarm_new"
+    } %>
+
     <div class="content">
       <%= render 'form', event: @event %>
     </div>

@@ -37,6 +37,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :goal %>
+    <%= form.text_area :goal, rows: "10" %>
+  </div>
+
+  <div class="field">
     <%= form.label :birthday %>
     <%= form.date_select :birthday, discard_year: true %>
   </div>
@@ -44,6 +49,6 @@
   <%= form.hidden_field :team_id, value: current_user.id %>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn" %>
   </div>
 <% end %>

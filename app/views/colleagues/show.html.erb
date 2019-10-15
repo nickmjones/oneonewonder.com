@@ -1,37 +1,45 @@
 <%= content_for :main do %>
 
   <main>
-    <%= render 'shared/detail-nav', :locals => {:path => root_path, :page_title => @colleague.full_name, :page_subtitle => @colleague.title, :style => "full" } %>
 
-    <div class="context-menu">
-      <ul>
-        <li>Details</li>
-        <li>Events</li>
-        <li>Notes</li>
-        <li>Admin</li>
+    <%= render 'shared/detail-nav', locals: {
+      path: root_path,
+      page_title: @colleague.full_name,
+      page_subtitle: @colleague.title,
+      style: "backbar--simple",
+      icon: "person",
+      color: @colleague.color,
+      subcomponent: "event-notifier"
+    } %>
+
+
+    <div class="context">
+      <ul class="context__menu">
+        <li class="context__menu__item context__menu__item--active">Details</li>
+        <li class="context__menu__item">Events</li>
+        <li class="context__menu__item">Notes</li>
+        <li class="context__menu__item">
+          <%=link_to "Admin", edit_colleague_path(@colleague) %>
+        </li>
       </ul>
     </div>
 
     <div class="content">
-
-      <div class="colleague-header">
-        <div class="colleague-header__events">
-          <% if @event.any? %>
-            <span class="chip">
-              <%= fa_icon "calendar" %> <%= @event.first.date.strftime("%b %e") %>
-            </span>
-          <% else %>
-            <span class="chip">
-              <i class="material-icons">calendar</i> No Events Upcoming
-            </span>
+      <% if @goals %>
+        <div class="goals">
+          <% @goals.each do |goal| %>
+            <div class="goals--item">
+              <h5><%= goal.goal_type %></h5>
+              <h4><%= goal.goal_title %></h4>
+              <div class="chip chip--blue">
+                <%= goal.goal_end.strftime("%B %y") %>
+              </div>
+            </div>
           <% end %>
         </div>
-      </div>
+      <% end %>
 
-      <hr/>
+    </div>
 
-      <h5>Also:</h5>
-      <p>Historical listing of past 1:1's</p>
-      <p>Ability to book next 1:1</p>
   </main>
 <% end %>

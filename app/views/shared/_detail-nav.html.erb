@@ -1,11 +1,7 @@
-  <% if locals[:style] == "simple" %>
-<div class="backbar backbar--simple">
-  <% else %>
 <div class="backbar">
-  <% end %>
   <div class="backbar__action">
-    <div class="roundrect-icon">
-      <i class="material-icons">apps</i>
+    <div class="roundrect-icon" style="background-color: #<%= locals[:color] ||= "" %>">
+      <i class="material-icons"><%= locals[:icon] ||= "apps" %></i>
     </div>
   </div>
 
@@ -15,4 +11,10 @@
       <h5><%= locals[:page_subtitle] %></h5>
     <% end %>
   </div>
+
+  <% if locals[:subcomponent] %>
+    <div class="backbar__subcomponent">
+      <%= render locals[:subcomponent] %>
+    </div>
+  <% end %>
 </div>

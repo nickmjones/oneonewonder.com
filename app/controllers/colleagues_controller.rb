@@ -66,16 +66,15 @@ class ColleaguesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_colleague
       @colleague = Colleague.find(params[:id])
       @team = Team.find(current_user.id)
-      @members = @team.colleagues.all
       @event = Event.where(:colleague_id => params[:id])
+      @goals = Goal.where(:colleague_id => params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def colleague_params
-      params.require(:colleague).permit(:fname, :lname, :title, :birthday, :team_id, :color)
+      params.require(:colleague).permit(:fname, :lname, :title, :birthday, :team_id, :color, :goal)
     end
 end

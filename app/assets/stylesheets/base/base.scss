@@ -45,7 +45,6 @@ a {
     text-decoration: none;
   }
 }
-
 .wrapper {
   display: flex;
   height: 100vh;
@@ -129,26 +128,34 @@ main {
   }
 }
 
-// nav
+// ------------------------------------------------
+// Show view subnav
+// ------------------------------------------------
+
 .backbar {
   display: flex;
   flex-flow: row;
-  background: #fff;
+  padding: 1rem;
 
   a {
     text-decoration: none;
     color: #444;
   }
-
-  &--simple {
-    background: transparent;
-    border: 0;
-    margin: -2rem -2rem 0 -2rem;
-  }
 }
+
 .backbar__action {
   padding: 1rem 0 1rem 1rem;
   height: 100%;
+}
+.backbar__subcomponent {
+  margin-left: auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+
+  .chip {
+    display: block;
+  }
 }
 .backbar__title {
   padding: 1rem;
@@ -165,6 +172,8 @@ main {
   }
 }
 
+// ------------------------------------------------
+
 .roundrect-icon {
   width: 45px;
   height: 45px;
@@ -175,8 +184,42 @@ main {
   color: #fff;
 }
 
-// Authorized nav
+.goals {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 1rem;
+}
+.goals--item {
+  background: #fff;
+  padding: 2rem;
+  box-shadow: 0 10px 20px $color-btn-background;
+  border-radius: 12px;
+  display: flex;
+  flex-flow: column wrap;
 
+  h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  h5 {
+    color: $color-btn-border;
+    font-size: 1rem;
+  }
+
+  .chip {
+    align-self: flex-end;
+    margin-top: auto;
+  }
+}
+.goals--item:last-child {
+  margin-right: 0;
+}
+
+
+// ------------------------------------------------
+// Authorized nav
+// ------------------------------------------------
 .authd-navigation {
   background: #fff;
   padding: 1rem;
@@ -226,9 +269,41 @@ main {
   margin: 0;
 }
 
+// ------------------------------------------------
+
+// ------------------------------------------------
+// Secondary nav bar on show views
+// ------------------------------------------------
+
+.context {
+  padding: 0 2rem;
+  border-bottom: 1px solid #d7d7d7;
+}
+.context__menu {
+  display: flex;
+}
+.context__menu__item {
+  border-bottom: 4px solid $color-background;
+  padding: 8px;
+  transition: all .20s ease-in-out;
+}
+.context__menu__item:not(:last-child) {
+  margin-right: 1.4rem;
+}
+.context__menu__item--active,
+.context__menu__item:hover {
+  border-bottom: 4px solid $color-btn-border;
+}
+
+
+
+// ------------------------------------------------
+
 // Calendar
 .simple-calendar {
   margin: 2rem 0;
+  box-shadow: 0 10px 20px $color-btn-background;
+  border-radius: 12px;
 }
 .simple-calendar .today {
   background: lighten($color-highlight, 20%) !important;

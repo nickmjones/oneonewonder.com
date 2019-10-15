@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_09_165642) do
+ActiveRecord::Schema.define(version: 2019_10_10_230838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_10_09_165642) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "color"
     t.text "email"
+    t.text "goal"
     t.index ["team_id"], name: "index_colleagues_on_team_id"
   end
 
@@ -54,6 +55,21 @@ ActiveRecord::Schema.define(version: 2019_10_09_165642) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  create_table "goals", force: :cascade do |t|
+    t.string "goal_type"
+    t.string "goal_title"
+    t.text "goal_description"
+    t.boolean "goal_complete"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "colleague_id"
+    t.date "goal_start"
+    t.date "goal_end"
+    t.index ["colleague_id"], name: "index_goals_on_colleague_id"
+    t.index ["user_id"], name: "index_goals_on_user_id"
+  end
+
   create_table "teams", force: :cascade do |t|
     t.string "nickname"
     t.datetime "created_at", precision: 6, null: false
@@ -78,4 +94,6 @@ ActiveRecord::Schema.define(version: 2019_10_09_165642) do
 
   add_foreign_key "colleagues", "teams"
   add_foreign_key "events", "users"
+  add_foreign_key "goals", "colleagues"
+  add_foreign_key "goals", "users"
 end

@@ -1,6 +1,18 @@
-<h1>Editing Colleague</h1>
+<%= content_for :main do %>
+  <main>
+    
+    <%= render 'shared/detail-nav', locals: {
+      path: root_path,
+      page_title: @colleague.full_name,
+      page_subtitle: @colleague.title,
+      style: "backbar--simple",
+      icon: "person",
+      color: @colleague.color,
+      subcomponent: "event-notifier"
+    } %>
+    <div class="content">
+      <%= render 'form', colleague: @colleague %>
+    </div>
 
-<%= render 'form', colleague: @colleague %>
-
-<%= link_to 'Show', @colleague %> |
-<%= link_to 'Back', colleagues_path %>
+  </main>
+<% end %>

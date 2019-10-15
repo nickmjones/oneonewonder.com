@@ -1,0 +1,10 @@
+<!-- show the next event for this colleague -->
+<% if @event.any? %>
+  <span class="chip">
+    <%= fa_icon "calendar" %> <%= @event.first.date.strftime("%b %e") %>
+  </span>
+<% else %>
+  <span class="chip">
+    No Upcoming Events
+  </span>
+<% end %>

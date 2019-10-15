@@ -2,12 +2,12 @@
   <main>
     <%= render 'shared/detail-nav', :locals => {
       path: root_path,
-      page_title: "Invite Colleague",
-      page_subtitle: "Add a team member",
-      icon: "alarm_new"
+      page_title: "Create a new goal",
+      icon: "apps"
     } %>
+
     <div class="content">
-      <%= render 'form', colleague: @colleague %>
+      <%= render 'form', goal: @goal %>
     </div>
   </main>
 <% end %>
