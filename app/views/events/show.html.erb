@@ -1,4 +1,4 @@
-  <% content_for :main do %>
+<% content_for :main do %>
 
   <main>
     <%= render 'shared/detail-nav', :locals => {:path => root_path, :page_title => @event.title, :page_subtitle => @event.date.strftime("%B, %y %Y @ %l:%M %p") } %>

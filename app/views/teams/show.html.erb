@@ -1,3 +1,19 @@
-<p id="notice"><%= notice %></p>
+<% content_for :main do %>
 
-<%= render 'shared/sidebar' %>
+  <main>
+    <%= render 'shared/detail-nav', :locals => {:path => root_path, :page_title => @team.nickname, :page_subtitle => @team.colleagues.size } %>
+
+    <div class="content">
+      <div class="flex">
+        <% @team.colleagues.each do |colleague| %>
+          <div class="flex__item">
+            <h5><%= link_to colleague.full_name, colleague %></h5>
+            <p><%= colleague.title %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </main>
+
+<% end %>

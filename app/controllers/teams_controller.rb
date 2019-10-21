@@ -67,6 +67,7 @@ class TeamsController < ApplicationController
     def set_team
       @team = Team.find(params[:id])
       @members = @team.colleagues.all
+      @colleague = Colleague.all
     end
 
     def team_params

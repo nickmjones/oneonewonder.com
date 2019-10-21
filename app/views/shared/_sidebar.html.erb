@@ -12,22 +12,13 @@
     <hr/>
 
     <h3>Team</h3>
+
     <ul>
-      <% @team.colleagues.each do |member| %>
-        <%= active_link_to member do %>
-          <li>
-            <%= member.full_name %>
-          </li>
-        <% end %>
-      <% end %>
+      <li>
+        <%= active_link_to "Members", team_path(@team) %>
       <li>
         <%= active_link_to "Invite Colleague", new_colleague_path %>
       </li>
-    </ul>
-
-    <hr/>
-
-    <ul>
       <li>
         <%= active_link_to "Team Settings", edit_team_path(@team) %>
       </li>

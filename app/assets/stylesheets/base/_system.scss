@@ -83,66 +83,27 @@ form {
   }
 }
 
-// flexgrid
-
 .flex {
   display: flex;
   flex-flow: row wrap;
-
-  &--gutters {
-    margin: 0 0 1rem -2rem;
-  }
-  &--nowrap {
-    flex-flow: row nowrap;
-  }
-}
-.flex--gutters .flex__item {
-  padding: 2rem 0 0 2rem;
 }
 .flex__item {
-  flex: 1;
-
-  &--full {
-    flex: 0 0 100%;
-  }
-  &--1of3 {
-    flex: 0 0 33.3333%
-  }
-  &--1of2 {
-    flex: 0 0 50%
-  }
-}
-.node {
+  flex: 0 1 calc(33.333% - .75rem);
+  padding: 1rem;
+  margin: 0 .75rem .75rem 0;
   background: #fff;
-  border-radius: 6px;
-  padding: 2rem;
-  box-shadow: 0 8px 20px #efefef;
+  border-radius: 8px;
+  border-width: 1px 1px 3px 1px;
+  border-color: darken($color-lightblue, 10%);
+  border-style: solid;
+}
 
-  &--gradient {
-    background: linear-gradient(90deg, #2B5CE4, #188EDC);
-    border: 0;
-    line-height: 1.4;
-    padding: 1.2rem;
-    position: relative;
-    h2 {
-      font-size: 1.2rem;
-      margin: 0;
-      color: #fff;
-    }
-    h5 {
-      font-size: .8rem;
-      margin: 0;
-      color: rgba(255,255,255,0.6);
-    }
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-    .bell {
-      position: absolute;
-      top: .3rem;
-      right: .5rem;
-      color: #fff;
-    }
-  }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1fr, 12);
+  grid-gap: 1rem;
+}
+.grid__item {
+  padding: 1rem;
+  border: 1px solid red;
 }
